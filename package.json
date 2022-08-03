@@ -1,0 +1,63 @@
+{
+  "name": "tomiswap",
+  "version": "1.0.0-beta.0",
+  "description": "Tomi smart contracts for interacting with Uniswap V2",
+  "engines": {
+    "node": ">=10"
+  },
+  "homepage": "https://uniswap.org",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Uniswap/uniswap-v2-periphery"
+  },
+  "files": [
+    "build",
+    "contracts"
+  ],
+  "dependencies": {
+    "@remix-project/remixd": "^0.4.2",
+    "@uniswap/lib": "1.1.1",
+    "@uniswap/v2-core": "1.0.0",
+    "ethers": "^5.4.0"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-etherscan": "^2.1.2",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@typechain/ethers-v5": "^4.0.0",
+    "@types/mocha": "^8.2.2",
+    "@openzeppelin/contracts": "3.3.0",
+    "chai": "^4.3.4",
+    "dotenv": "^10.0.0",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.4.0",
+    "hardhat": "^2.3.3",
+    "hardhat-abi-exporter": "^2.2.1",
+    "hardhat-deploy": "^0.7.0-beta.44",
+    "hardhat-gas-reporter": "^1.0.4",
+    "hardhat-log-remover": "^2.0.2",
+    "hardhat-typechain": "^0.3.3",
+    "ts-generator": "^0.1.1",
+    "ts-node": "^10.0.0",
+    "typechain": "^4.0.0",
+    "typescript": "^4.3.2"
+  },
+  "scripts": {
+    "lint": "yarn prettier ./test/*.ts --check",
+    "lint:fix": "yarn prettier ./test/*.ts --write",
+    "clean": "rimraf ./build/",
+    "precompile": "yarn clean",
+    "compile": "truffle compile",
+    "test": "truffle test",
+    "migrate": "truffle migrate",
+    "rinkeby:deploy:reset": "hardhat deploy --network rinkeby --reset",
+    "rinkeby:deploy": "hardhat deploy --network rinkeby",
+    "rinkeby:verify": "hardhat --network rinkeby etherscan-verify --solc-input",
+    "rinkeby:verify:v2": "hardhat --network rinkeby sourcify",
+    "bsc:deploy": "hardhat deploy --network bsc",
+    "bsc:verify": "hardhat --network bsc etherscan-verify --solc-input",
+    "ropsten:deploy": "hardhat deploy --network ropsten",
+    "ropsten:verify": "hardhat --network ropsten etherscan-verify --solc-input"
+  },
+  "license": "GPL-3.0-or-later"
+}
